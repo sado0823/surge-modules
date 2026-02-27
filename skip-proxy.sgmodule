@@ -1,5 +1,6 @@
-  #!name=Skip Proxy
-  #!desc=新增跳过的host
+#!name=Skip-Proxy
+#!desc=新增跳过的host
+#!category=sado的模块
 
-  [General]
-  skip-proxy = %INSERT% *.bilibili.co, *.hdslb.com, *.bilibili.com, *.biliintl.co
+[General]
+skip-proxy = %INSERT% *.bilibili.co, *.hdslb.com, *.bilibili.com, *.biliintl.co
