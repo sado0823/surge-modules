@@ -1,0 +1,5 @@
+  #!name=Skip Proxy
+  #!desc=新增跳过的host
+
+  [General]
+  skip-proxy = %INSERT% *.bilibili.co, *.hdslb.com, *.bilibili.com, *.biliintl.co
