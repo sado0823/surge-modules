@@ -3,7 +3,7 @@
 #!category=sado的模块
 
 [General]
-skip-proxy = %INSERT% *.bilibili.co, *.hdslb.com, *.bilibili.com, *.biliintl.co
+skip-proxy = %INSERT% *bilibili.co, *hdslb.com, *bilibili.com, *biliintl.co
 
 [Panel]
 # update-interval=0 表示手动点击才刷新
