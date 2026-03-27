@@ -1,30 +1,21 @@
-!(async () => {
-    const moduleUrl =
-      "https://raw.githubusercontent.com/sado0823/surge-modules/main/skip-proxy.sgmodule";
-
-    let [conf, moduleText] = await Promise.all([
-      httpAPI("/v1/profiles/current?sensitive=0", "GET"),
-      fetchText(moduleUrl),
-    ]);
-
-    // 从当前 profile 提取完整 skip-proxy
-    let content = conf.profile || "";
+  !(async () => {                                                                                                                                               
+    let conf = await httpAPI("/v1/profiles/current?sensitive=0", "GET");      
+    let content = conf.profile || "";                                                                                                                           
+                                                                               
+    // skip-proxy
     let skipMatch = content.match(/skip-proxy\s*=\s*(.+)/);
     let skips = skipMatch ? skipMatch[1].trim() : "未找到";
     let skipList = skips.split(/\s*,\s*/).join("\n");
 
-    // 从模块文件提取 [Rule] 部分
-    let ruleSection = moduleText.match(/\[Rule\]([\s\S]*?)(?=\[|$)/);
-    let rules = ruleSection
-      ? ruleSection[1]
-          .trim()
-          .split("\n")
-          .filter((l) => l.trim())
-          .join("\n")
-      : "未找到";
+    // 所有 DIRECT 规则
+    let directRules = content
+      .split("\n")
+      .filter((l) => l.trim().endsWith(",DIRECT"))
+      .map((l) => l.trim());
+    let rulesOutput = directRules.length > 0 ? directRules.join("\n") : "未找到";
 
     let output =
-      "【Skip Proxy】\n" + skipList + "\n\n【模块 DIRECT 规则】\n" + rules;
+      "【Skip Proxy】\n" + skipList + "\n\n【DIRECT 规则】\n" + rulesOutput;
 
     $done({
       title: "Skip Proxy",
@@ -38,14 +29,6 @@
     return new Promise((resolve) => {
       $httpAPI(method, path, body, (result) => {
         resolve(result);
-      });
-    });
-  }
-
-  function fetchText(url) {
-    return new Promise((resolve) => {
-      $httpClient.get(url, (err, resp, body) => {
-        resolve(body || "");
       });
     });
   }
