@@ -1,13 +1,18 @@
-#!name=Skip Proxy
-#!desc=新增跳过的host
+#!name=Skip Proxy                                                                                                                                             
+#!desc=新增跳过的host                                                        
 #!category=sado的模块
 
 [General]
-skip-proxy = %INSERT% *.bilibili.co, bilibili.co, *hdslb.com, *bilibili.com, *biliintl.co
+skip-proxy = %INSERT% *.bilibili.co, bilibili.co, *.hdslb.com, hdslb.com, *.bilibili.com, bilibili.com, *.biliintl.co, biliintl.co
+
+[Rule]
+DOMAIN-SUFFIX,bilibili.co,DIRECT
+DOMAIN-SUFFIX,bilibili.com,DIRECT
+DOMAIN-SUFFIX,hdslb.com,DIRECT
+DOMAIN-SUFFIX,biliintl.co,DIRECT
 
 [Panel]
-# update-interval=0 表示手动点击才刷新
-skip-proxy-panel = script-name=skip-proxy-info, title="Skip Proxy", update-interval=0                                                                                     
+skip-proxy-panel = script-name=skip-proxy-info, title="Skip Proxy", update-interval=0
 
 [Script]
 skip-proxy-info = type=generic, script-path=https://raw.githubusercontent.com/sado0823/surge-modules/main/skip-proxy-info.js
