@@ -16,3 +16,4 @@ skip-proxy-panel = script-name=skip-proxy-info, title="Skip Proxy", update-inter
 
 [Script]
 skip-proxy-info = type=generic, script-path=https://raw.githubusercontent.com/sado0823/surge-modules/main/skip-proxy-info.js
+direct-rules-info = type=generic, script-path=https://raw.githubusercontent.com/sado0823/surge-modules/main/direct-rules-info.js
