@@ -44,7 +44,7 @@
 
       $done({
         title: "Skip Proxy",
-        content: "【Skip Proxy】\n" + skipList + rulesOutput,
+        content: "【Skip Proxy v2】\n" + rulesOutput,
         icon: "arrow.right.circle",
         "icon-color": "#5AC8FA",
       });
