@@ -3,7 +3,7 @@
 #!category=sado的模块
 
 [General]
-skip-proxy = %INSERT% *.bilibili.co, bilibili.co, *.hdslb.com, hdslb.com, *.bilibili.com, bilibili.com, *.biliintl.co, biliintl.co, *.mihoyo.com, mihoyo.com
+skip-proxy = %INSERT% *.bilibili.co, bilibili.co, *.hdslb.com, hdslb.com, *.bilibili.com, bilibili.com, *.biliintl.co, biliintl.co, *.mihoyo.com, mihoyo.com, hoyoverse.com, *.hoyoverse.com
 
 [Rule]
 DOMAIN-SUFFIX,bilibili.co,DIRECT
